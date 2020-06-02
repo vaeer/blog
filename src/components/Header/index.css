@@ -1,0 +1,23 @@
+.header-fixed {
+    position: fixed;
+    display: flex;
+    height: 60px;
+    width: 100%;
+    background: var(--global-color-light);
+    box-shadow: 0 0 10px rgba(14, 14, 14, .26);
+    align-items: center;
+}
+
+.logo-btn {
+    margin-left: 20px;
+}
+
+.route-btn-area {
+    display: flex;
+    margin-left: auto;
+    justify-content: center;
+}
+
+.route-btn-area > a {
+    margin-right: 20px;
+}

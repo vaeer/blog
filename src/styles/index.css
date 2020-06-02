@@ -1,0 +1,9 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+:root {
+    --global-color-light: rgba(255, 255, 255, 0.98);
+    --global-color-dark: #222;
+}
