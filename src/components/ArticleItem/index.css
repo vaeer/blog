@@ -1,0 +1,7 @@
+.article-item {
+    height: 150px;
+}
+
+.article-item:hover {
+    color: var(--global-theme-color);
+}

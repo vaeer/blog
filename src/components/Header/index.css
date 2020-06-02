@@ -1,15 +1,34 @@
 .header-fixed {
     position: fixed;
     display: flex;
-    height: 60px;
+    height: 98px;
     width: 100%;
-    background: var(--global-color-light);
+    background: var(--header-background-color);
     box-shadow: 0 0 10px rgba(14, 14, 14, .26);
     align-items: center;
 }
 
+.header-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0 80px;
+    padding: 0 24px;
+}
+
+.header-process {
+    position: absolute;
+    top: 0;
+    background: var(--global-theme-color);
+    height: 3px;
+}
+
 .logo-btn {
     margin-left: 20px;
+}
+
+.logo-avator {
+    background-image: url('../../assets/avator.png');
 }
 
 .route-btn-area {
@@ -18,6 +37,24 @@
     justify-content: center;
 }
 
+.header-fixed a {
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--header-font-color);
+}
+
+.header-fixed a:hover {
+    color: var(--font-color-hover);
+}
+
 .route-btn-area > a {
-    margin-right: 20px;
+    font-size: 18px;
+    margin-right: 40px;
+    padding: 0.5em 0;
+    border-bottom: 2px solid transparent;
+}
+
+.route-btn-area > a:hover {
+    border-bottom: 2px solid var(--global-theme-color);
 }
