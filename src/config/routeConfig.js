@@ -4,7 +4,7 @@
  */
 
 import About from '../routes/About';
-import Main from '../routes/Main'
+import Blog from '../routes/Blog'
 
 export default [
     {
@@ -14,7 +14,7 @@ export default [
         name: '关于'
     }, {
         path: '/',
-        component: Main,
+        component: Blog,
         exact: true,
         name: '主页'
     }

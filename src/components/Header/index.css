@@ -1,5 +1,4 @@
 .header-fixed {
-    position: fixed;
     display: flex;
     height: 98px;
     width: 100%;
@@ -41,7 +40,7 @@
     font-size: 20px;
     font-weight: 600;
     text-decoration: none;
-    color: var(--header-font-color);
+    color: var(--font-color);
 }
 
 .header-fixed a:hover {
@@ -57,4 +56,9 @@
 
 .route-btn-area > a:hover {
     border-bottom: 2px solid var(--global-theme-color);
+}
+
+.header-fixed .header-container .theme-toggle {
+    height: 30px;
+    width: 30px;
 }

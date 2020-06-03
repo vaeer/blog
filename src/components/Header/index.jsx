@@ -8,6 +8,8 @@ import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import routeConfig from '../../config/routeConfig';
 import * as actions from '../../actions/common';
+import sun from '../../assets/sun.svg';
+import moon from '../../assets/moon.svg';
 import './index.css';
 
 const mapStateToProps = state => ({
@@ -38,7 +40,11 @@ const Header = React.memo(props => {
                         )
                     }
                 </div>
-                <button onClick={() => { props.changeTheme(!mode) }}>切换</button>
+                <img
+                    src={mode ? moon : sun}
+                    className="theme-toggle"
+                    onClick={() => { props.changeTheme(!mode) }}
+                />
             </div>
         </div>
     );

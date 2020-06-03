@@ -1,9 +1,14 @@
 html, body {
     height: 100%;
     margin: 0;
+    font-size: 16px;
     font-family: Inter var, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
     line-height: 1.5;
     background: var(--body-color);
+}
+
+#root {
+    min-height: 100vh;
 }
 
 :root {
@@ -19,16 +24,21 @@ html, body {
     --header-background-color: var(--header-background-color-light);
 
     /* 字体颜色 */
-    --header-font-color-light: #6b7280;
-    --header-font-color-dark: #fff;
-    --header-font-color: var(--header-font-color-light);
+    --font-color-normal: #161e2e;
+    --font-color-light: #6b7280;
+    --font-color-dark: #fff;
+    --font-color: var(--font-color-light);
+
+    --font-color-hover-light: var(--font-color-normal);
+    --font-color-hover-dark: var(--font-color-light);
+    --font-color-hover: var(--font-color-hover-light);
 
     /* body颜色 */
     --body-color-light: #fff;
     --body-color-dark: #161e2e;
     --body-color: var(--body-color-light);
 
-    --font-color-hover-light: #161e2e;
-    --font-color-hover-dark: #6b7280;
-    --font-color-hover: var(--font-color-hover-light);
+    /* 文章页 */
+    --article-background-color: var(--header-background-color);
+    --article-title-color: var(--font-color-normal);
 }

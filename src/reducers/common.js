@@ -20,11 +20,11 @@ export default (state = initialState, action) => {
             // header颜色
             const headerLightColor = getComputedStyle(document.documentElement).getPropertyValue('--header-background-color-light');
             const headerDarkColor = getComputedStyle(document.documentElement).getPropertyValue('--header-background-color-dark');
-            const fontLightColor = getComputedStyle(document.documentElement).getPropertyValue('--header-font-color-light');
-            const fontDarkColor = getComputedStyle(document.documentElement).getPropertyValue('--header-font-color-dark');
+            const fontLightColor = getComputedStyle(document.documentElement).getPropertyValue('--font-color-light');
+            const fontDarkColor = getComputedStyle(document.documentElement).getPropertyValue('--font-color-dark');
 
             document.documentElement.style.setProperty('--header-background-color', payload ? headerLightColor : headerDarkColor);
-            document.documentElement.style.setProperty('--header-font-color', payload ? fontLightColor : fontDarkColor);
+            document.documentElement.style.setProperty('--font-color', payload ? fontLightColor : fontDarkColor);
 
             // body颜色
             const bodyLightColor = getComputedStyle(document.documentElement).getPropertyValue('--body-color-light');
