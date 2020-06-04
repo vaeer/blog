@@ -4,7 +4,8 @@
  */
 
 import About from '../routes/About';
-import Blog from '../routes/Blog'
+import Blog from '../routes/Blog';
+import Detail from '../routes/Detail/index';
 
 export default [
     {
@@ -17,5 +18,9 @@ export default [
         component: Blog,
         exact: true,
         name: '主页'
+    }, {
+        path: '/:date',
+        exact: true,
+        component: Detail
     }
-]
+];

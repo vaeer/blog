@@ -35,8 +35,11 @@ export default (state = initialState, action) => {
             // 通用
             const fontHoverLightColor = getComputedStyle(document.documentElement).getPropertyValue('--font-color-hover-light');
             const fontHoverDarkColor = getComputedStyle(document.documentElement).getPropertyValue('--font-color-hover-dark');
+            const fontNormalColor = getComputedStyle(document.documentElement).getPropertyValue('--font-color-normal');
 
             document.documentElement.style.setProperty('--font-color-hover', payload ? fontHoverLightColor : fontHoverDarkColor);
+            document.documentElement.style.setProperty('--article-title-color', payload ? fontNormalColor : fontDarkColor);
+
             return {
                 ...state,
                 mode: payload

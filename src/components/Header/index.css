@@ -61,4 +61,5 @@
 .header-fixed .header-container .theme-toggle {
     height: 30px;
     width: 30px;
+    cursor: pointer;
 }

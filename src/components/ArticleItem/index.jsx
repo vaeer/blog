@@ -3,7 +3,7 @@
  * @author vaer
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './index.css'
@@ -15,8 +15,8 @@ const mapStateToProps = state => ({
 });
 
 const ArticleItem = React.memo(props => {
-    
     const {title, date, content, mode} = props;
+
     return (
         <div className="article-item">
             <div className="article-title">

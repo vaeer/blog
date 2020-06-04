@@ -41,10 +41,10 @@
     color: var(--font-color);
 }
 
-.article-item:hover {
+.article-item:hover .article-title {
     color: var(--global-theme-color);
 }
 
-.article-footer:hover {
+.article-item:hover .article-footer {
     color: var(--global-theme-color);
 }

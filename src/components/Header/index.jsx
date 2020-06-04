@@ -3,7 +3,7 @@
  * @author vaer
  */
 
-import React, {useEffect, useState} from 'react';
+import React, { useEffect } from 'react';
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import routeConfig from '../../config/routeConfig';
@@ -20,10 +20,12 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const Header = React.memo(props => {
-    const {mode, process} = props;
+    const { mode, process, changeProcess, changeTheme } = props;
+
     useEffect(() => {
-        props.changeProcess(10);
+        changeProcess(10);
     }, []);
+
     return (
         <div className="header-fixed">
             <div className="header-process" style={{ width: `${process}%` }}/>
@@ -35,7 +37,7 @@ const Header = React.memo(props => {
                 <div className="route-btn-area">
                     {
                         routeConfig.map(item => (
-                            <a href={item.path} key={item.path}>{item.name}</a>
+                            item.name && <a href={item.path} key={item.path}>{item.name}</a>
                             )
                         )
                     }
@@ -43,7 +45,7 @@ const Header = React.memo(props => {
                 <img
                     src={mode ? moon : sun}
                     className="theme-toggle"
-                    onClick={() => { props.changeTheme(!mode) }}
+                    onClick={() => { changeTheme(!mode) }}
                 />
             </div>
         </div>
