@@ -3,7 +3,7 @@
  * @author vaer
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import routeConfig from '../../config/routeConfig';
@@ -25,10 +25,16 @@ const mapDispatchToProps = dispatch => ({
 const Header = React.memo(props => {
     const { mode, process, changeProcess, changeTheme } = props;
     const [inputVisible, setInputVisible] = useState(false);
+    const inputEl = useRef();
 
     useEffect(() => {
-        changeProcess(10);
-    }, []);
+        changeProcess(100);
+        inputEl.current.focus();
+    }, [inputVisible]);
+
+    const searchInput = type => () => {
+        setInputVisible(type);
+    };
 
     return (
         <div className="header-fixed">
@@ -39,17 +45,17 @@ const Header = React.memo(props => {
                     Vaer
                 </a>
                 <div className="route-btn-area">
-                    {
-                        inputVisible
-                        && <input
-                            className="header-search"
-                            placeholder="搜索"
-                        />
-                    }
+                    <input
+                        className="header-search"
+                        placeholder="搜索"
+                        style={{visibility: inputVisible ? 'visible' : 'hidden'}}
+                        onBlur={searchInput(false)}
+                        ref={inputEl}
+                    />
                     <img
                         src={mode ? searchLight : searchDark}
                         className="search-icon"
-                        onClick={() => { setInputVisible(true); }}
+                        onClick={searchInput(true)}
                     />
                     {
                         routeConfig.map(item => (
