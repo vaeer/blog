@@ -6,6 +6,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ArticleItem from '../../components/ArticleItem';
+import Sider from '../../components/Sider';
 import './index.css';
 
 const Blog = React.memo(props => {
@@ -30,6 +31,7 @@ const Blog = React.memo(props => {
             </div>
             <div className="blog-sider">
                 {/* 待添加 */}
+                <Sider/>
             </div>
         </div>
     );

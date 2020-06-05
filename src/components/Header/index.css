@@ -24,16 +24,40 @@
 
 .logo-btn {
     margin-left: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .logo-avator {
-    background-image: url('../../assets/avator.png');
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
 }
 
 .route-btn-area {
     display: flex;
     margin-left: auto;
-    justify-content: center;
+    align-items: center;
+}
+
+.route-btn-area .header-search {
+    height: 30px;
+    margin-right: 10px;
+    font-size: 14px;
+    border-radius: 2em;
+    border: 2px solid var(--global-theme-color);
+    padding: 0 10px;
+}
+
+.route-btn-area .search-icon {
+    height: 20px;
+    width: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.route-btn-area .header-search:focus {
+    outline: none;
 }
 
 .header-fixed a {

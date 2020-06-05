@@ -6,6 +6,7 @@
 import About from '../routes/About';
 import Blog from '../routes/Blog';
 import Detail from '../routes/Detail/index';
+import News from '../routes/News';
 
 export default [
     {
@@ -22,5 +23,10 @@ export default [
         path: '/:date',
         exact: true,
         component: Detail
+    }, {
+        path: '/news',
+        component: News,
+        exact: true,
+        name: '新闻'
     }
 ];

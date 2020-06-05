@@ -1,0 +1,7 @@
+.blog-footer {
+    color: var(--font-color);
+}
+
+.blog-footer a {
+    color: var(--global-theme-color);
+}

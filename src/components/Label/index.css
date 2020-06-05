@@ -1,0 +1,17 @@
+.article-label {
+    display: inline-block;
+    height: 28px;
+    line-height: 28px;
+    font-size: 14px;
+    background: var(--global-theme-color);
+    color: #fff;
+    border-radius: 0.625em;
+    padding: 0 1em;
+    margin: 0 1em 1em 0;
+    cursor: pointer;
+}
+
+.article-label :hover{
+    background: var(--global-theme-color);
+    opacity: 0.5;
+}

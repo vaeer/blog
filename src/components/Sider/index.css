@@ -1,0 +1,26 @@
+.sider {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: var(--font-color)
+}
+
+.sider .sider-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sider .sider-label .sider-label-show {
+    display: flex;
+    width: 100%;
+    padding: 1em;
+    justify-content: center;
+}
+
+.sider .sider-label img {
+    height: 18px;
+    width: 18px;
+    margin-left: 10px;;
+}
