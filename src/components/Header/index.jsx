@@ -41,7 +41,7 @@ const Header = React.memo(props => {
             <div className="header-process" style={{ width: `${process}%` }}/>
             <div className="header-container">
                 <a href="/" className="logo-btn">
-                    <img src={avator} className="logo-avator"/>
+                    <img src={avator} className="logo-avator" alt="avator"/>
                     Vaer
                 </a>
                 <div className="route-btn-area">
@@ -56,6 +56,7 @@ const Header = React.memo(props => {
                         src={mode ? searchLight : searchDark}
                         className="search-icon"
                         onClick={searchInput(true)}
+                        alt="search"
                     />
                     {
                         routeConfig.map(item => (
@@ -67,6 +68,7 @@ const Header = React.memo(props => {
                 <img
                     src={mode ? moon : sun}
                     className="theme-toggle"
+                    alt="mode"
                     onClick={() => { changeTheme(!mode) }}
                 />
             </div>

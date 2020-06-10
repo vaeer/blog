@@ -40,6 +40,11 @@ export default (state = initialState, action) => {
             document.documentElement.style.setProperty('--font-color-hover', payload ? fontHoverLightColor : fontHoverDarkColor);
             document.documentElement.style.setProperty('--article-title-color', payload ? fontNormalColor : fontDarkColor);
 
+            const borderLightColor = getComputedStyle(document.documentElement).getPropertyValue('--border-color-light');
+            const borderDarkColor = getComputedStyle(document.documentElement).getPropertyValue('--border-color-dark');
+
+            document.documentElement.style.setProperty('--border-color', payload ? borderLightColor : borderDarkColor);
+
             return {
                 ...state,
                 mode: payload

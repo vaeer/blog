@@ -8,15 +8,33 @@ import { withRouter } from 'react-router-dom';
 import './index.css';
 
 const Label = React.memo(props => {
-    const { title, num, style, to } = props;
+    const { title, num, style, to, size, className } = props;
+
+    const sizeStyle = {
+        large: {
+            height: '28px',
+            lineHeight: '28px',
+            fontSize: '16px'
+        },
+        middle: {
+            height: '26px',
+            lineHeight: '26px',
+            fontSize: '14px'
+        },
+        small: {
+            height: '24px',
+            lineHeight: '24px',
+            fontSize: '12px'
+        }
+    }
     
     const toDetail = () => {
         props.history.push(to)
     }
     return (
         <div
-            className="article-label"
-            style={{...style}}
+            className={`article-label ${className}`}
+            style={{...style, ...(sizeStyle[size])}}
             onClick={toDetail}
         >
             <span>{title}</span>
@@ -28,7 +46,15 @@ Label.propTypes = {
     title: PropTypes.string.isRequired,
     num: PropTypes.number.isRequired,
     style: PropTypes.object,
-    to: PropTypes.string.isRequired
+    to: PropTypes.string.isRequired,
+    size: PropTypes.oneOf(['large', 'middle', 'small']),
+    className: PropTypes.string
 };
+
+Label.defaultProps = {
+    size: 'middle',
+    num: 0,
+    title: ''
+}
 
 export default withRouter(Label);

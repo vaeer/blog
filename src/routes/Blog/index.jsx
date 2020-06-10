@@ -7,14 +7,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { } from 'react-router-dom';
 import ArticleItem from '../../components/ArticleItem';
-import Sider from '../../components/Sider';
 import './index.css';
+import fire from '../../assets/fire.svg';
+import Label from '../../components/Label';
 
 const Blog = React.memo(props => {
-
-	const toArticleDetail = () => {
-        
-	}
 
     return (
         <div className="blog">
@@ -22,7 +19,7 @@ const Blog = React.memo(props => {
                 <ArticleItem
                     title="标题"
                     date="2020-06-03"
-                    content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
+                    content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
                     to='/aaaa'
                 />
                 <ArticleItem
@@ -37,8 +34,18 @@ const Blog = React.memo(props => {
                 />
             </div>
             <div className="blog-sider">
-                {/* 待添加 */}
-                <Sider/>
+                <div className="sider-label">
+                    <h3>
+                        Topics<img src={fire} alt="fire"/>
+                    </h3>
+                    <div className="sider-label-show">
+                        <Label title="javascript" num={1} to="/aaa" className="sider-label-item"/>
+                        <Label title="react" num={2} className="sider-label-item"/>
+                    </div>
+                </div>
+                <div className="sider-contact">
+                
+                </div>
             </div>
         </div>
     );
