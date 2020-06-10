@@ -6,6 +6,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import './index.css'
 import clockLight from '../../assets/clock-light.svg';
 import clockDark from '../../assets/clock-dark.svg';
@@ -15,15 +16,19 @@ const mapStateToProps = state => ({
 });
 
 const ArticleItem = React.memo(props => {
-    const {title, date, content, mode} = props;
+    const {title, date, content, mode, to} = props;
+    
+    const toDetail = () => {
+        props.history.push(to);
+    }
 
     return (
-        <div className="article-item">
+        <div className="article-item" onClick={toDetail}>
             <div className="article-title">
                 {title}
             </div>
             <div className="article-desc">
-                <img 
+                <img
                     className="article-desc-icon"
                     src={mode ? clockLight : clockDark}
                 />
@@ -42,7 +47,8 @@ const ArticleItem = React.memo(props => {
 ArticleItem.propTypes = {
     title: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired
+    content: PropTypes.string.isRequired,
+    to: PropTypes.string.isRequired
 };
 
-export default connect(mapStateToProps)(ArticleItem);
+export default withRouter(connect(mapStateToProps)(ArticleItem));

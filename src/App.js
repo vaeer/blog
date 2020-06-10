@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import {Route, Switch, BrowserRouter as Router} from 'react-router-dom'
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
 import Header from './components/Header';
 import Footer from './components/Footer';
 import routeConfig from './config/routeConfig';
 import './App.css';
 
 class App extends Component {
+    componentDidMount() {
+        console.log(this.props);
+    }
 	render() {
 		return (
 			<div className="app">

@@ -4,21 +4,31 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import './index.css';
 
-const Footer = React.memo(props => {
-    const { title, num, style } = props;
+const Label = React.memo(props => {
+    const { title, num, style, to } = props;
+    
+    const toDetail = () => {
+        props.history.push(to)
+    }
     return (
-        <div className="article-label" style={{...style}}>
+        <div
+            className="article-label"
+            style={{...style}}
+            onClick={toDetail}
+        >
             <span>{title}</span>
         </div>
     );
 });
 
-Footer.propTypes = {
+Label.propTypes = {
     title: PropTypes.string.isRequired,
     num: PropTypes.number.isRequired,
-    style: PropTypes.object
-}
+    style: PropTypes.object,
+    to: PropTypes.string.isRequired
+};
 
-export default Footer;
+export default withRouter(Label);

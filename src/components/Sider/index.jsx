@@ -11,12 +11,12 @@ const Sider = React.memo(props => {
                     Topics<img src={fire}/>
                 </h3>
                 <div className="sider-label-show">
-                    <Label title="javascript" num={1}/>
+                    <Label title="javascript" num={1} to="/aaa"/>
                     <Label title="react" num={2}/>
                 </div>
             </div>
             <div className="sider-contact">
-
+        
             </div>
         </div>
     );
