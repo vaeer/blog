@@ -32,10 +32,6 @@ const Header = React.memo(props => {
         inputEl.current.focus();
     }, [inputVisible]);
 
-    const searchInput = type => () => {
-        setInputVisible(type);
-    };
-
     return (
         <div className="header-fixed">
             <div className="header-process" style={{ width: `${process}%` }}/>
@@ -46,16 +42,15 @@ const Header = React.memo(props => {
                 </a>
                 <div className="route-btn-area">
                     <input
-                        className="header-search"
+                        className={inputVisible ? 'header-search' : 'header-search-hidden'}
                         placeholder="搜索"
-                        style={{visibility: inputVisible ? 'visible' : 'hidden'}}
-                        onBlur={searchInput(false)}
+                        onBlur={() => { setInputVisible(false); }}
                         ref={inputEl}
                     />
                     <img
                         src={mode ? searchLight : searchDark}
                         className="search-icon"
-                        onClick={searchInput(true)}
+                        onClick={() => { setInputVisible(!inputVisible); }}
                         alt="search"
                     />
                     {
