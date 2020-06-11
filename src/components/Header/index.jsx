@@ -26,9 +26,24 @@ const Header = React.memo(props => {
     const { mode, process, changeProcess, changeTheme } = props;
     const [inputVisible, setInputVisible] = useState(false);
     const inputEl = useRef();
+    
+    useEffect(() => {
+        const scrollEvent = () => {
+            // 页面总高度
+            const pageHeight = document.body.scrollHeight;
+            // 页面滚动隐藏部分高度
+            const scrollHeight =  window.scrollY;
+            const scrollPercent = (scrollHeight / (pageHeight - window.innerHeight)).toFixed(2);
+            changeProcess(scrollPercent * 100);
+        };
+        window.addEventListener('scroll', scrollEvent);
+    
+        return () => {
+            window.removeEventListener('scroll', scrollEvent);
+        }
+    }, [window.scrollY]);
 
     useEffect(() => {
-        changeProcess(100);
         inputEl.current.focus();
     }, [inputVisible]);
 
@@ -44,7 +59,6 @@ const Header = React.memo(props => {
                     <input
                         className={inputVisible ? 'header-search' : 'header-search-hidden'}
                         placeholder="搜索"
-                        onBlur={() => { setInputVisible(false); }}
                         ref={inputEl}
                     />
                     <img
