@@ -10,23 +10,22 @@ import News from '../routes/News';
 
 export default [
     {
-        path: '/about',
-        component: About,
-        exact: true,
-        name: '关于'
-    }, {
         path: '/',
         component: Blog,
         exact: true,
         name: '主页'
     }, {
-        path: '/:date',
-        exact: true,
-        component: Detail
-    }, {
         path: '/news',
         component: News,
         exact: true,
         name: '新闻'
+    }, {
+        path: '/about',
+        component: About,
+        exact: true,
+        name: '关于'
+    }, {
+        path: '/:title',
+        component: Detail
     }
 ];

@@ -3,7 +3,7 @@
  * @author vaer
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { } from 'react-router-dom';
@@ -25,37 +25,45 @@ const Blog = React.memo(props => {
     const { getArticles, articleList, pageNo, pageSize, total} = props;
 
     useEffect(() => {
-        console.log('>>>', props);
         getArticles();
     }, []);
+
+    const blogContent = articleList
+        .map(article => (
+            <ArticleItem
+                title={article.title}
+                date={article.date}
+                content={article.content}
+                labels={article.label}
+                to={`/${article.title}`}
+            />
+        ));
+    
+    const siderLabel = (
+        <Fragment>
+            <h3>
+                Topics<img src={fire} alt="fire"/>
+            </h3>
+            <div className="sider-label-show">
+                <Label title="javascript" num={1} to="/aaa" className="sider-label-item"/>
+                <Label title="react" num={2} className="sider-label-item"/>
+            </div>
+        </Fragment>
+    );
+
+    const siderContact = '';
 
     return (
         <div className="blog">
             <div className="blog-content">
-                {
-                    articleList.map(article => (
-                        <ArticleItem
-                            title={article.title}
-                            date={article.date}
-                            content={article.content}
-                            labels={article.label}
-                            to={`/${article.title}`}
-                        />
-                    ))
-                }
+                {blogContent}
             </div>
             <div className="blog-sider">
                 <div className="sider-label">
-                    <h3>
-                        Topics<img src={fire} alt="fire"/>
-                    </h3>
-                    <div className="sider-label-show">
-                        <Label title="javascript" num={1} to="/aaa" className="sider-label-item"/>
-                        <Label title="react" num={2} className="sider-label-item"/>
-                    </div>
+                    {siderLabel}
                 </div>
                 <div className="sider-contact">
-                
+                    {siderContact}
                 </div>
             </div>
         </div>
