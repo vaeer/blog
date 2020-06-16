@@ -10,22 +10,25 @@ import { } from 'react-router-dom';
 import ArticleItem from '../../components/ArticleItem';
 import fire from '../../assets/fire.svg';
 import Label from '../../components/Label';
-import * as actions from '../../actions/article';
+import * as article_actions from '../../actions/article';
+import * as label_actions from '../../actions/label';
 import './index.css';
 
 const mapStateToProps = state => ({
-    ...state.article
+    ...state.article,
+    ...state.label
 });
 
 const mapDispatchToProps = dispatch => ({
-    ...bindActionCreators(actions, dispatch)
+    ...bindActionCreators({...article_actions, ...label_actions}, dispatch)
 });
 
 const Blog = React.memo(props => {
-    const { getArticles, articleList, pageNo, pageSize, total} = props;
-
+    const { getArticles, getLabels, articleList, pageNo, pageSize, total, labels } = props;
+    
     useEffect(() => {
         getArticles();
+        getLabels();
     }, []);
 
     const blogContent = articleList
@@ -36,6 +39,7 @@ const Blog = React.memo(props => {
                 content={article.content}
                 labels={article.label}
                 to={`/${article.title}`}
+                key={article.title}
             />
         ));
     
@@ -45,14 +49,16 @@ const Blog = React.memo(props => {
                 Topics<img src={fire} alt="fire"/>
             </h3>
             <div className="sider-label-show">
-                <Label title="javascript" num={1} to="/aaa" className="sider-label-item"/>
-                <Label title="react" num={2} className="sider-label-item"/>
+                {
+                    labels.map(label => (
+                        <Label title={label} key={label} className="sider-label-item"/>
+                    ))
+                }
             </div>
         </Fragment>
     );
 
     const siderContact = '';
-
     return (
         <div className="blog">
             <div className="blog-content">

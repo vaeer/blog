@@ -4,7 +4,7 @@
  */
 import axios from 'axios';
 
-const baseURL = process.env.NODE_ENV === 'development' ? '/' : '/';
+const baseURL = process.env.NODE_ENV === 'development' ? '/mock' : '/';
 
 const client = axios.create({
     baseURL

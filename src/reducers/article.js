@@ -14,7 +14,7 @@ export default (state = initialState, action) => {
     const { payload, type } = action;
     switch (type) {
         case 'SET_ARTICLES':
-            const { list, pageNo, pageSize, total } = payload.data;
+            const { list, pageNo, pageSize, total } = payload;
             return {
                 ...state,
                 articleList: list,

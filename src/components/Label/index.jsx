@@ -8,7 +8,7 @@ import { withRouter } from 'react-router-dom';
 import './index.css';
 
 const Label = React.memo(props => {
-    const { title, num, style, to, size, className } = props;
+    const { title, style, to, size, className } = props;
 
     const sizeStyle = {
         large: {
@@ -44,7 +44,6 @@ const Label = React.memo(props => {
 
 Label.propTypes = {
     title: PropTypes.string.isRequired,
-    num: PropTypes.number.isRequired,
     style: PropTypes.object,
     to: PropTypes.string.isRequired,
     size: PropTypes.oneOf(['large', 'middle', 'small']),
@@ -53,7 +52,6 @@ Label.propTypes = {
 
 Label.defaultProps = {
     size: 'middle',
-    num: 0,
     title: ''
 }
 

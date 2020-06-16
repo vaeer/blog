@@ -1,21 +1,21 @@
 /**
- * @file 文章页异步请求
+ * @file 标签异步请求
  * @author vaer
  */
 
 import { take, call, put, fork, select} from 'redux-saga/effects';
 
 import request from '../utils/ajax';
-import { getArticles, searchArticles } from '../api/article';
-import * as actions from '../actions/article';
+import { getLabels } from '../api/label';
+import * as actions from '../actions/label';
 
 function* get() {
     while (true) {
         try {
-            const { payload } = yield take('GET_ARTICLES_REQUEST');
-            const res = yield call(getArticles, payload);
+            const { payload } = yield take('GET_LABELS_REQUEST');
+            const res = yield call(getLabels, payload);
             if (res.status === 0) {
-                yield put(actions.setArticles(res.data));
+                yield put(actions.setLabels(res.data));
             } else {
                 alert(res.message);
             }
