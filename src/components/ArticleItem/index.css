@@ -33,9 +33,11 @@
 }
 
 .article-item .article-item-content {
+    font-size: 14px;
+    line-height: 24px;
     margin-bottom: 10px;
     color: var(--font-color);
-    max-height: 4em;
+    max-height: 96px;
     overflow: hidden;
 }
 

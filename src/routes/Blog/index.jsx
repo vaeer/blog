@@ -3,35 +3,46 @@
  * @author vaer
  */
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { } from 'react-router-dom';
 import ArticleItem from '../../components/ArticleItem';
-import './index.css';
 import fire from '../../assets/fire.svg';
 import Label from '../../components/Label';
+import * as actions from '../../actions/article';
+import './index.css';
+
+const mapStateToProps = state => ({
+    ...state.article
+});
+
+const mapDispatchToProps = dispatch => ({
+    ...bindActionCreators(actions, dispatch)
+});
 
 const Blog = React.memo(props => {
+    const { getArticles, articleList, pageNo, pageSize, total} = props;
+
+    useEffect(() => {
+        console.log('>>>', props);
+        getArticles();
+    }, []);
 
     return (
         <div className="blog">
             <div className="blog-content">
-                <ArticleItem
-                    title="标题"
-                    date="2020-06-03"
-                    content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
-                    to='/aaaa'
-                />
-                <ArticleItem
-                    title="标题"
-                    date="2020-06-03"
-                    content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
-                />
-                <ArticleItem
-                    title="标题"
-                    date="2020-06-03"
-                    content="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容"
-                />
+                {
+                    articleList.map(article => (
+                        <ArticleItem
+                            title={article.title}
+                            date={article.date}
+                            content={article.content}
+                            labels={article.label}
+                            to={`/${article.title}`}
+                        />
+                    ))
+                }
             </div>
             <div className="blog-sider">
                 <div className="sider-label">
@@ -51,4 +62,4 @@ const Blog = React.memo(props => {
     );
 });
 
-export default connect()(Blog);
+export default connect(mapStateToProps, mapDispatchToProps)(Blog);

@@ -6,9 +6,6 @@ import routeConfig from './config/routeConfig';
 import './App.css';
 
 class App extends Component {
-    componentDidMount() {
-        console.log(this.props);
-    }
 	render() {
 		return (
 			<div className="app">

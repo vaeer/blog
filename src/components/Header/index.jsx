@@ -20,7 +20,7 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
     ...bindActionCreators(actions, dispatch)
-})
+});
 
 const Header = React.memo(props => {
     const { mode, process, changeProcess, changeTheme } = props;

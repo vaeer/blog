@@ -8,8 +8,8 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-    const {payload} = action;
-    switch (action.type) {
+    const { payload, type } = action;
+    switch (type) {
         case 'CHANGE_THEME_MODE':
             // 主题色
             const themeLightColor = getComputedStyle(document.documentElement).getPropertyValue('--global-theme-color-light');
