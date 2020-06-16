@@ -29,7 +29,7 @@ const Label = React.memo(props => {
     }
     
     const toDetail = () => {
-        props.history.push(to)
+        props.history.push(to);
     }
     return (
         <div

@@ -2,36 +2,51 @@
  * @file 详情页
  * @author vaer
  */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import './index.css';
 import Label from '../../components/Label';
+import * as article_actions from '../../actions/article';
 
 const mapStateToProps = state => ({
-    ...state.common
+    ...state.article
+});
+
+const mapDispatchToProps = dispatch => ({
+    ...bindActionCreators(article_actions, dispatch)
 });
 
 const Detail = React.memo(props => {
-    console.log(props);
+    const {
+        getArticleDetail,
+        detail = {}
+    } = props;
     
+    useEffect(() => {
+        const uid = props.match.params.uid || '';
+        getArticleDetail({ uid });
+        console.log(detail);
+    }, []);
+
     return (
         <div className="article-detail">
             <div className="article-header">
                 <div className="article-title">
-                    React原理剖析
+                    {detail.title}
                 </div>
                 <div className="article-info">
-                    <span className="article-date">24th of May, 2020</span>
+                    <span className="article-date">{detail.date}</span>
                     <span className="article-labels">
                         <Label title="javascript" size="small"/>
                     </span>
                 </div>
             </div>
             <div className="article-content">
-                正文
+                {detail.content}
             </div>
         </div>
     );
 });
 
-export default connect(mapStateToProps)(Detail);
+export default connect(mapStateToProps, mapDispatchToProps)(Detail);

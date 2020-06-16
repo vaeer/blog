@@ -20,10 +20,10 @@ const enhancer = composeEnhancers(
 const enhancerNullLogger = composeEnhancers(
     applyMiddleware(sagaMiddleware)
 );
-let store = createStore(reducer, enhancer);
+let store = createStore(reducer, enhancerNullLogger);
 
 if (process.env.NODE_ENV === 'development') {
-    store = createStore(reducer, enhancerNullLogger);
+    store = createStore(reducer, enhancer);
 }
 // 必须有个run函数，才能可以访问
 sagaMiddleware.run(saga);

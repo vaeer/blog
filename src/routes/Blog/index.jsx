@@ -38,8 +38,8 @@ const Blog = React.memo(props => {
                 date={article.date}
                 content={article.content}
                 labels={article.label}
-                to={`/${article.title}`}
-                key={article.title}
+                to={`/${article.uid}`}
+                key={article.uid}
             />
         ));
     

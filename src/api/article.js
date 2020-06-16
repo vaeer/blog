@@ -18,6 +18,12 @@ export const searchArticles = async params => {
     });
 };
 
+export const getArticleDetail = async params => {
+    return await request('/article/detail',{
+        method: 'post',
+        data: params
+    });
+};
 
 export const saveArticles = async params => {
     return await request('/article/save', {

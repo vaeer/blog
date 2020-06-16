@@ -25,7 +25,7 @@ export default [
         exact: true,
         name: '关于'
     }, {
-        path: '/:title',
+        path: '/:uid',
         component: Detail
     }
 ];

@@ -6,7 +6,7 @@
 import { take, call, put, fork, select} from 'redux-saga/effects';
 
 import request from '../utils/ajax';
-import { getArticles, searchArticles } from '../api/article';
+import { getArticles, searchArticles, getArticleDetail } from '../api/article';
 import * as actions from '../actions/article';
 
 function* get() {
@@ -25,6 +25,23 @@ function* get() {
     }
 }
 
+function* detail() {
+    while (true) {
+        try {
+            const { payload } = yield take('GET_ARTICLE_DETAIL_REQUEST');
+            const res = yield call(getArticleDetail, payload);
+            if (res.status === 0) {
+                yield put(actions.setArticleDetail(res.data));
+            } else {
+                alert(res.message);
+            }
+        } catch (e) {
+            console.log(e);
+        }
+    }
+}
+
 export default function* () {
     yield fork(get);
+    yield fork(detail);
 };
