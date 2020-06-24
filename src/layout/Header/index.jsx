@@ -7,7 +7,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import routeConfig from '../../config/routeConfig';
-import * as actions from '../../actions/common';
+import * as common_Actions from '../../actions/common';
+import * as article_Actions from '../../actions/article';
 import sun from '../../assets/sun.svg';
 import moon from '../../assets/moon.svg';
 import searchLight from '../../assets/search-light.svg';
@@ -19,12 +20,13 @@ const mapStateToProps = state => ({
     ...state.common
 });
 const mapDispatchToProps = dispatch => ({
-    ...bindActionCreators(actions, dispatch)
+    ...bindActionCreators({ ...common_Actions, ...article_Actions }, dispatch)
 });
 
 const Header = React.memo(props => {
-    const { mode, process, changeProcess, changeTheme } = props;
+    const { mode, process, changeProcess, changeTheme, getArticles } = props;
     const [inputVisible, setInputVisible] = useState(false);
+    const [keywords, setKeywords] = useState('');
     const inputEl = useRef();
     
     useEffect(() => {
@@ -47,6 +49,16 @@ const Header = React.memo(props => {
         inputEl.current.focus();
     }, [inputVisible]);
 
+    useEffect(() => {
+        getArticles({
+            keywords
+        });
+    }, [keywords]);
+
+    const input = e => {
+        setKeywords(e.target.value);
+    };
+
     return (
         <div className="header-fixed">
             <div className="header-process" style={{ width: `${process}%` }}/>
@@ -60,6 +72,7 @@ const Header = React.memo(props => {
                         className={inputVisible ? 'header-search' : 'header-search-hidden'}
                         placeholder="搜索"
                         ref={inputEl}
+                        onChange={input}
                     />
                     <img
                         src={mode ? searchLight : searchDark}

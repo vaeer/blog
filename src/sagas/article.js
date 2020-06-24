@@ -3,10 +3,9 @@
  * @author vaer
  */
 
-import { take, call, put, fork, select} from 'redux-saga/effects';
+import { take, call, put, fork} from 'redux-saga/effects';
 
-import request from '../utils/ajax';
-import { getArticles, searchArticles, getArticleDetail } from '../api/article';
+import { getArticles, getArticleDetail } from '../api/article';
 import * as actions from '../actions/article';
 
 function* get() {

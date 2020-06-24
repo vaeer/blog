@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { } from 'react-router-dom';
 import ArticleItem from '../../components/ArticleItem';
+import Blank from '../../components/Blank';
 import fire from '../../assets/fire.svg';
 import Label from '../../components/Label';
 import * as article_actions from '../../actions/article';
@@ -31,17 +32,19 @@ const Blog = React.memo(props => {
         getLabels();
     }, []);
 
-    const blogContent = articleList
-        .map(article => (
-            <ArticleItem
-                title={article.title}
-                date={article.date}
-                content={article.content}
-                labels={article.label}
-                to={`/${article.uid}`}
-                key={article.uid}
-            />
-        ));
+    const blogContent = articleList.length
+        ? articleList.map(
+            article => (
+                <ArticleItem
+                    title={article.title}
+                    date={article.date}
+                    content={article.content}
+                    labels={article.label}
+                    to={`/${article.uid}`}
+                    key={article.uid}
+                />
+            ))
+        : <Blank />;
     
     const siderLabel = (
         <Fragment>

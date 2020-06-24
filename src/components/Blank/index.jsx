@@ -1,10 +1,8 @@
 import React from 'react';
+import './index.css';
 
 export default React.memo(props => {
     return (
-        <div>
-            News
-            开发ing...
-        </div>
+        <div className="blank">别问我，没结果~</div>
     );
 });

@@ -28,10 +28,6 @@ export default (state = initialState, action) => {
                 ...state
             };
         case 'SET_ARTICLE_DETAIL':
-            console.log('.....', {
-                ...state,
-                detail: payload
-            });
             return {
                 ...state,
                 detail: payload

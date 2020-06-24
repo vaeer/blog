@@ -9,12 +9,6 @@ export const getArticles = payload => ({
     payload
 });
 
-// 搜索文章
-export const searchArticles = payload => ({
-    type: 'SEARCH_ARTICLES_REQUEST',
-    payload
-});
-
 // 获取文章详情
 export const getArticleDetail = payload => ({
     type: 'GET_ARTICLE_DETAIL_REQUEST',
@@ -23,11 +17,6 @@ export const getArticleDetail = payload => ({
 
 export const setArticles = payload => ({
     type: 'SET_ARTICLES',
-    payload
-});
-
-export const setSearchResult = payload => ({
-    type: 'SET_SEARCH_RESULT',
     payload
 });
 

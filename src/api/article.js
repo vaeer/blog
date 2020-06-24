@@ -5,21 +5,21 @@
 import request from  '../utils/ajax';
 
 export const getArticles = async params => {
-    return await request('/article/get',{
+    return await request('/article/get', {
         method: 'post',
         data: params
     });
 };
 
 export const searchArticles = async params => {
-    return await request('/article/search',{
+    return await request('/article/search', {
         method: 'post',
         data: params
     });
 };
 
 export const getArticleDetail = async params => {
-    return await request('/article/detail',{
+    return await request('/article/detail', {
         method: 'post',
         data: params
     });
