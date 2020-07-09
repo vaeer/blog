@@ -6,6 +6,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import routeConfig from '../../config/routeConfig';
 import * as common_Actions from '../../actions/common';
 import * as article_Actions from '../../actions/article';
@@ -25,6 +26,7 @@ const mapDispatchToProps = dispatch => ({
 
 const Header = React.memo(props => {
     const { mode, process, changeProcess, changeTheme, getArticles } = props;
+    console.log('>>>>>', mode);
     const [inputVisible, setInputVisible] = useState(false);
     const [keywords, setKeywords] = useState('');
     const inputEl = useRef();
@@ -63,10 +65,10 @@ const Header = React.memo(props => {
         <div className="header-fixed">
             <div className="header-process" style={{ width: `${process}%` }}/>
             <div className="header-container">
-                <a href="/" className="logo-btn">
+                <Link to="/" className="logo-btn">
                     <img src={avator} className="logo-avator" alt="avator"/>
                     Vaer
-                </a>
+                </Link>
                 <div className="route-btn-area">
                     <input
                         className={inputVisible ? 'header-search' : 'header-search-hidden'}
@@ -82,7 +84,7 @@ const Header = React.memo(props => {
                     />
                     {
                         routeConfig.map(item => (
-                            item.name && <a href={item.path} key={item.path}>{item.name}</a>
+                            item.name && <Link to={item.path} key={item.path}>{item.name}</Link>
                             )
                         )
                     }

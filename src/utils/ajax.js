@@ -10,8 +10,16 @@ const client = axios.create({
     baseURL
 });
 
+client.interceptors.request.use(config => {
+    return config;
+});
+
+client.interceptors.response.use(config => {
+    return config;
+});
+
 export default async (url,options) => {
-    try{
+    try {
         let result = await client({
             ...options,
             url

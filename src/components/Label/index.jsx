@@ -28,9 +28,11 @@ const Label = React.memo(props => {
         }
     }
     
-    const toDetail = () => {
+    const toDetail = e => {
+        e.stopPropagation();
         props.history.push(to);
-    }
+    };
+
     return (
         <div
             className={`article-label ${className}`}

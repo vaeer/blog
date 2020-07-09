@@ -27,6 +27,7 @@
 
 .article-item .article-item-desc .article-item-labels {
     margin-left: auto;
+    z-index: 99;
 }
 
 .article-item .article-item-desc .article-item-desc-icon{
