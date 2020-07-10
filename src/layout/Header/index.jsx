@@ -26,7 +26,6 @@ const mapDispatchToProps = dispatch => ({
 
 const Header = React.memo(props => {
     const { mode, process, changeProcess, changeTheme, getArticles } = props;
-    console.log('>>>>>', mode);
     const [inputVisible, setInputVisible] = useState(false);
     const [keywords, setKeywords] = useState('');
     const inputEl = useRef();

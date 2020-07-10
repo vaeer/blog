@@ -39,7 +39,8 @@ const ArticleItem = React.memo(props => {
                     {
                         labels && labels.map(label => (
                             <Label
-                                to={`/${label}`}
+                                key={label}
+                                to={label}
                                 title={label}
                                 size="small"
                                 className="article-item-label"

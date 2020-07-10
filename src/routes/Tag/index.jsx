@@ -1,12 +1,13 @@
 /**
- * @file 博客页
+ * @file 标签页
  * @author vaer
  */
 
 import React, { Fragment, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { parse } from 'qs';
+import { } from 'react-router-dom';
+import { firstWordUpper } from '../../utils/utils';
 import ArticleItem from '../../components/ArticleItem';
 import Blank from '../../components/Blank';
 import fire from '../../assets/fire.svg';
@@ -26,7 +27,10 @@ const mapDispatchToProps = dispatch => ({
 
 const Blog = React.memo(props => {
     const { getArticles, getLabels, articleList, pageNo, pageSize, total, labels } = props;
-    
+
+    // 查询的label关键字
+    const LABEL = props.match.params.label || '';
+
     useEffect(() => {
         getArticles();
         getLabels();
@@ -63,16 +67,24 @@ const Blog = React.memo(props => {
 
     const siderContact = '';
     return (
-        <div className="blog">
-            <div className="blog-content">
-                {blogContent}
-            </div>
-            <div className="blog-sider">
-                <div className="sider-label">
-                    {siderLabel}
+        <div className="tag">
+            {
+                LABEL
+                && <div className="upper-content">
+                    Articles About<strong>{firstWordUpper(LABEL)}</strong>
                 </div>
-                <div className="sider-contact">
-                    {siderContact}
+            }
+            <div className="below-content">
+                <div className="blog-content">
+                    {blogContent}
+                </div>
+                <div className="blog-sider">
+                    <div className="sider-label">
+                        {siderLabel}
+                    </div>
+                    <div className="sider-contact">
+                        {siderContact}
+                    </div>
                 </div>
             </div>
         </div>

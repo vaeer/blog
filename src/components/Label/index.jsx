@@ -30,7 +30,7 @@ const Label = React.memo(props => {
     
     const toDetail = e => {
         e.stopPropagation();
-        props.history.push(to);
+        props.history.push(`/tag/${to}`);
     };
 
     return (

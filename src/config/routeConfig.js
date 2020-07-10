@@ -7,6 +7,7 @@ import About from '../routes/About';
 import Blog from '../routes/Blog';
 import Detail from '../routes/Detail/index';
 import News from '../routes/News';
+import Tag from '../routes/Tag';
 
 export default [
     {
@@ -27,5 +28,9 @@ export default [
     }, {
         path: '/:uid',
         component: Detail
+    }, {
+        path: '/tag/:label',
+        exact: true,
+        component: Tag
     }
 ];

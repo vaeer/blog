@@ -26,7 +26,6 @@ const Detail = React.memo(props => {
     useEffect(() => {
         const uid = props.match.params.uid || '';
         getArticleDetail({ uid });
-        console.log(detail);
     }, []);
 
     return (
@@ -38,7 +37,12 @@ const Detail = React.memo(props => {
                 <div className="article-info">
                     <span className="article-date">{detail.date}</span>
                     <span className="article-labels">
-                        <Label title="javascript" size="small"/>
+                        {
+                            Array.isArray(detail.labels)
+                            && detail.labels.map(label => (
+                                <Label to={label} title={label} size="small"/>
+                            ))
+                        }
                     </span>
                 </div>
             </div>
