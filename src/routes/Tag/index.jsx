@@ -25,7 +25,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const Blog = React.memo(props => {
-    const { getArticlesByLabel, getLabels, articleListByLabel, labels } = props;
+    const { getArticlesByLabel, getLabels, articleListByLabel, articleListByLabelTotal, labels } = props;
     // 查询的label关键字
     const LABEL = props.match.params.label || '';
 
@@ -73,6 +73,7 @@ const Blog = React.memo(props => {
                 LABEL
                 && <div className="upper-content">
                     Articles About<strong>{firstWordUpper(LABEL)}</strong>
+                    <div className="page">共{articleListByLabelTotal}篇</div>
                 </div>
             }
             <div className="below-content">

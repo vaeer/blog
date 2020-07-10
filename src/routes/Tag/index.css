@@ -19,6 +19,14 @@
     margin: 0 10px;
 }
 
+.tag .upper-content .page {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 2rem;
+    color: var(--font-color-light);
+}
+
+
 .tag .below-content {
     display: flex;
 }

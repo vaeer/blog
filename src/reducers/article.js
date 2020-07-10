@@ -36,7 +36,8 @@ export default (state = initialState, action) => {
         case 'SET_ARTICLES_BY_LABEL':
             return {
                 ...state,
-                articleListByLabel: payload
+                articleListByLabel: payload.list,
+                articleListByLabelTotal: payload.total
             };
         default:
             return state;
