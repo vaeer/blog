@@ -5,6 +5,7 @@
 
 const initialState = {
     articleList: [],
+    articleListByLabel: [],
     pageNo: 1,
     pageSize: 10,
     total: 0,
@@ -31,6 +32,11 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 detail: payload
+            };
+        case 'SET_ARTICLES_BY_LABEL':
+            return {
+                ...state,
+                articleListByLabel: payload
             };
         default:
             return state;

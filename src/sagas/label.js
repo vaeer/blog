@@ -5,7 +5,6 @@
 
 import { take, call, put, fork, select} from 'redux-saga/effects';
 
-import request from '../utils/ajax';
 import { getLabels } from '../api/label';
 import * as actions from '../actions/label';
 

@@ -11,6 +11,13 @@ export const getArticles = async params => {
     });
 };
 
+export const getArticlesByLabel = async params => {
+    return await request('/article/getByLabel', {
+        method: 'post',
+        data: params
+    });
+}
+
 export const searchArticles = async params => {
     return await request('/article/search', {
         method: 'post',

@@ -6,7 +6,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { } from 'react-router-dom';
 import { firstWordUpper } from '../../utils/utils';
 import ArticleItem from '../../components/ArticleItem';
 import Blank from '../../components/Blank';
@@ -26,18 +25,20 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const Blog = React.memo(props => {
-    const { getArticles, getLabels, articleList, pageNo, pageSize, total, labels } = props;
-
+    const { getArticlesByLabel, getLabels, articleListByLabel, labels } = props;
     // 查询的label关键字
     const LABEL = props.match.params.label || '';
 
     useEffect(() => {
-        getArticles();
         getLabels();
     }, []);
 
-    const blogContent = articleList.length
-        ? articleList.map(
+    useEffect(() => {
+        getArticlesByLabel({label: LABEL});
+    }, [LABEL]);
+
+    const blogContent = articleListByLabel.length
+        ? articleListByLabel.map(
             article => (
                 <ArticleItem
                     title={article.title}

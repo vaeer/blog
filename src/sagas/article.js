@@ -5,7 +5,7 @@
 
 import { take, call, put, fork} from 'redux-saga/effects';
 
-import { getArticles, getArticleDetail } from '../api/article';
+import { getArticles, getArticleDetail, getArticlesByLabel } from '../api/article';
 import * as actions from '../actions/article';
 
 function* get() {
@@ -22,6 +22,23 @@ function* get() {
             console.log(e);
         }
     }
+}
+
+function* getByLabel() {
+    while (true) {
+        try {
+            const { payload } = yield take('GET_ARTICLES_BY_LABEL_REQUEST');
+            const res = yield call(getArticlesByLabel, payload);
+            if (res.status === 0) {
+                yield put(actions.setArticlesByLabel(res.data));
+            } else {
+                alert(res.message);
+            }
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
 }
 
 function* detail() {
@@ -42,5 +59,6 @@ function* detail() {
 
 export default function* () {
     yield fork(get);
+    yield fork(getByLabel);
     yield fork(detail);
 };
