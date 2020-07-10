@@ -26,7 +26,7 @@ export default [
         exact: true,
         name: '关于'
     }, {
-        path: '/:uid',
+        path: '/article/:uid',
         component: Detail
     }, {
         path: '/tag/:label',

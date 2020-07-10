@@ -26,7 +26,7 @@ const mapDispatchToProps = dispatch => ({
 
 const Blog = React.memo(props => {
     const { getArticles, getLabels, articleList, pageNo, pageSize, total, labels } = props;
-    
+
     useEffect(() => {
         getArticles();
         getLabels();
@@ -40,7 +40,7 @@ const Blog = React.memo(props => {
                     date={article.date}
                     content={article.content}
                     labels={article.labels}
-                    to={`/${article.uid}`}
+                    to={`/article/${article.uid}`}
                     key={article.uid}
                 />
             ))
