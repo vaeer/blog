@@ -24,7 +24,16 @@
 }
 
 .article-date {
+    display: inline-block;
     margin-right: 2em;
+}
+
+.article-labels {
+    display: inline-block;
+}
+
+.article-labels .article-label-item{
+    margin-right: 0.75em;
 }
 
 .article-header {

@@ -35,15 +35,20 @@ const Detail = React.memo(props => {
                     {detail.title}
                 </div>
                 <div className="article-info">
-                    <span className="article-date">{detail.date}</span>
-                    <span className="article-labels">
+                    <div className="article-date">{detail.date}</div>
+                    <div className="article-labels">
                         {
                             Array.isArray(detail.labels)
                             && detail.labels.map(label => (
-                                <Label to={label} title={label} size="small"/>
+                                <Label
+                                    to={label}
+                                    title={label}
+                                    size="small"
+                                    className="article-label-item"
+                                />
                             ))
                         }
-                    </span>
+                    </div>
                 </div>
             </div>
             <div className="article-content">

@@ -1,7 +1,7 @@
 import React from 'react';
 import routeConfig from '../../config/routeConfig';
 import NotFound from '../../components/NotFound';
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom';
 
 const Main = React.memo(props => {
     return (

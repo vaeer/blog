@@ -29,6 +29,10 @@
     z-index: 99;
 }
 
+.article-item-labels .article-item-label {
+    margin-left: 0.75em;
+}
+
 .article-item .article-item-desc .article-item-desc-icon{
     margin-right: 10px;
 }
