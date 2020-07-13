@@ -5,10 +5,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import { firstWordUpper } from '../../utils/utils';
 import './index.css';
 
 const Label = React.memo(props => {
-    const { title, style, to, size, className } = props;
+    const { title, style, to, size, number, className } = props;
 
     const sizeStyle = {
         large: {
@@ -39,7 +40,7 @@ const Label = React.memo(props => {
             style={{...style, ...(sizeStyle[size])}}
             onClick={toDetail}
         >
-            <span>{title}</span>
+            <span>{firstWordUpper(title)} {number}</span>
         </div>
     );
 });
@@ -48,6 +49,7 @@ Label.propTypes = {
     title: PropTypes.string.isRequired,
     style: PropTypes.object,
     to: PropTypes.string.isRequired,
+    number: PropTypes.number,
     size: PropTypes.oneOf(['large', 'middle', 'small']),
     className: PropTypes.string
 };

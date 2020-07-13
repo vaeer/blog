@@ -53,7 +53,13 @@ const Blog = React.memo(props => {
             <div className="sider-label-show">
                 {
                     labels.map(label => (
-                        <Label to={label} title={label} key={label} className="sider-label-item"/>
+                        <Label
+                            to={label.name}
+                            title={label.name}
+                            number={label.number}
+                            key={label.name}
+                            className="sider-label-item"
+                        />
                     ))
                 }
             </div>

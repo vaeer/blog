@@ -43,6 +43,7 @@ const Detail = React.memo(props => {
                                 <Label
                                     to={label}
                                     title={label}
+                                    key={label}
                                     size="small"
                                     className="article-label-item"
                                 />
