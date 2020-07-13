@@ -3,7 +3,7 @@
  * @author vaer
  */
 
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { firstWordUpper } from '../../utils/utils';

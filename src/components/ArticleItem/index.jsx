@@ -49,9 +49,7 @@ const ArticleItem = React.memo(props => {
                     }
                 </div>
             </div>
-            <div className="article-item-content">
-                {content}
-            </div>
+            <div className="article-item-content" dangerouslySetInnerHTML={{ __html: content }} />
             <div className="article-item-footer">
                 查看更多
             </div>

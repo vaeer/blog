@@ -3,7 +3,7 @@
  * @author vaer
  */
 
-import { take, call, put, fork, select} from 'redux-saga/effects';
+import { take, call, put, fork } from 'redux-saga/effects';
 
 import { getLabels } from '../api/label';
 import * as actions from '../actions/label';

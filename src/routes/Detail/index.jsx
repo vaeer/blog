@@ -51,9 +51,7 @@ const Detail = React.memo(props => {
                     </div>
                 </div>
             </div>
-            <div className="article-content">
-                {detail.content}
-            </div>
+            <div className="article-content" dangerouslySetInnerHTML={{ __html: detail.content}} />
         </div>
     );
 });
