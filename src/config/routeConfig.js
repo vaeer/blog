@@ -14,7 +14,7 @@ export default [
         path: '/',
         component: Blog,
         exact: true,
-        name: '主页'
+        name: '文章'
     }, {
         path: '/news',
         component: News,

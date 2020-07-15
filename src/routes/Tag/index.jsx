@@ -50,7 +50,6 @@ const Blog = React.memo(props => {
                 />
             ))
         : <Blank />;
-    console.log('>>>>>', labels);
     const siderLabel = (
         <Fragment>
             <h3>
